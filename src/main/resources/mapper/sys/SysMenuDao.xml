@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zsxmlv.modules.sys.dao.SysMenuDao">
+
+    <!--获取不包含按钮的菜单列表-->
+    <select id="queryNotButtonList" resultType="cn.zsxmlv.modules.sys.entity.SysMenuEntity">
+        SELECT * FROM erp_sys_menu a WHERE a.type != 2 ORDER BY a.sort ASC
+    </select>
+
+    <!--根据上级ID获取菜单-->
+    <select id="queryListByPid" resultType="cn.zsxmlv.modules.sys.entity.SysMenuEntity">
+        select * from sys_menu a where a.pid = #{pid} order by a.sort asc
+    </select>
+
+</mapper>
